@@ -17,13 +17,14 @@
         // Store first result set
         if ($result = $con -> store_result()){
           while ($row = $result -> fetch_row()){
-            printf("Hello %s\n", $row[0]);
+            //printf("Hello %s with pass %s\r\n", $row[0], $row[1]);
+            echo nl2br("Hello ".$row[0]." with pass ".$row[1]."\n");
           }
           $result -> free_result();
         }
         // if there are more result-sets, then print a divider
         if ($con -> more_results()){
-          printf("-------------\n");
+          echo nl2br("-------------\n");
         }
         //Prepare next result set
       }while ($con -> next_result());
